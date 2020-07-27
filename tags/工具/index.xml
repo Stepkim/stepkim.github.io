@@ -19,8 +19,9 @@
       <guid>https://stepkim.github.io/posts/%E5%85%B3%E4%BA%8Ehugo%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
       <description>安装 1. 二进制安装 下载编译好的对应系统的二进制文件进行安装, 下载地址: Hugo Releases
 如果在Mac环境下, 可以使用brew install hugo进行快速安装
-2. 源码安装 2.1 环境依赖: + Git + Mercurial + Go 1.3+ (Go 1.4+ on windows)
-2.2 安装
+2. 源码安装 2.1 环境依赖:
+ Git Mercurial Go 1.3+ (Go 1.4+ on windows)
+  2.2 安装
 安装好Go环境之后设置环境变量
 export GOPATH=$HOME/go  获取源码并编译
 go get -v github.com/spf13/hugo  如果需要更新Hugo的所有依赖, 可以加上 -u 参数, 执行命令之后, 源码会下载到 $GOPATH/src/ 目录下, 二进制文件会在 $GOPATH/bin/ 目录下
