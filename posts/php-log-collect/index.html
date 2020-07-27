@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://stepkim.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="关于PHP的错误日志收集"/>
+  <meta name="twitter:description" content="开启日志 更改 php.ini 或者 php-fpm.conf, 如果更改了 php-fpm.conf 的话, 会覆盖 php.ini 的配置
+ php.ini
+# 生产环境关闭页面显示错误 display_errors = Off # 设置报错级别 # E_ALL 报告所有的错误 # E_NOTICE 报告通知类错误, 脚本可能会产生错误 # E_PARSE 报告编译时的语法解析错误 # E_WARNING 报告运行时的警告类错误(脚本不会终止运行) # E_ERROR 报告导致脚本终止运行的致命错误 # 如果需要排除某种错误, 使用 ~ 前缀, 多个用 &amp; 连接 error_reporting = E_ALL # 记录日志的文件路径, 如果文件不可写入, 会把错误抛出, 后面可以使用nginx接收错误输出 error_log = path/to/name # 开启日志记录 log_errors = On  php-fpm.conf
+# 默认标准输出(stdout)、标准错误输出(stderr)都是/dev/null, 不会记录 # 开启之后, 会通过pipe管道导到master进程, 写到日志里 catch_workers_output = yes # 如果ini里面配置了error_log, fpm配置里面可以不配置 error_log = path/to/name   集成到Nginx中 在开启了php的日志之后, 注释掉 PHP error_log 配置, 在nginx的配置文件里面设置 error_log 即可把PHP日志导向Nginx."/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@stepkim"/>
+  
+
+
+
+		
+		<meta name="author" content="stepkim">
+		
+		<meta name="generator" content="Hugo 0.59.0" />
+		<title>关于PHP的错误日志收集 &middot; StepKim</title>
+		<link rel="shortcut icon" href="https://stepkim.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://stepkim.github.io/css/style.css">
+		<link rel="stylesheet" href="https://stepkim.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://stepkim.github.io/css/font-awesome.min.css">
+		
+
+		
+		<link href="https://stepkim.github.io/index.xml" rel="alternate" type="application/rss+xml" title="StepKim" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://stepkim.github.io/'> <span class="arrow">←</span>首页</a>
+	
+	<a href='https://stepkim.github.io/posts'>文章</a>
+	<a href="https://stepkim.github.io/categories">分类</a>
+	<a href='https://stepkim.github.io/tags'>标签</a>
+	<a href='https://stepkim.github.io/about'>关于</a>
+
+	
+
+	
+	<a class="cta" href="https://stepkim.github.io/index.xml">订阅</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        关于PHP的错误日志收集
+                    </h1>
+                    <h2 class="headline">
+                    2020-07-27 19:44
+                    · 95 字数
+                    · 阅读需要约 1 分钟
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://stepkim.github.io/tags/php">PHP</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#开启日志">开启日志</a></li>
+<li><a href="#集成到nginx中">集成到Nginx中</a></li>
+<li><a href="#参考文章">参考文章</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    
+
+<h3 id="开启日志">开启日志</h3>
+
+<p>更改 <code>php.ini</code> 或者 <code>php-fpm.conf</code>, 如果更改了 <code>php-fpm.conf</code> 的话, 会覆盖 <code>php.ini</code> 的配置</p>
+
+<ul>
+<li><p>php.ini</p>
+
+<pre><code class="language-ini"># 生产环境关闭页面显示错误
+display_errors = Off
+# 设置报错级别
+# E_ALL 报告所有的错误
+# E_NOTICE 报告通知类错误, 脚本可能会产生错误
+# E_PARSE 报告编译时的语法解析错误
+# E_WARNING 报告运行时的警告类错误(脚本不会终止运行)
+# E_ERROR 报告导致脚本终止运行的致命错误
+# 如果需要排除某种错误, 使用 ~ 前缀, 多个用 &amp; 连接
+error_reporting = E_ALL
+# 记录日志的文件路径, 如果文件不可写入, 会把错误抛出, 后面可以使用nginx接收错误输出
+error_log = path/to/name
+# 开启日志记录
+log_errors = On
+</code></pre></li>
+
+<li><p>php-fpm.conf</p>
+
+<pre><code class="language-ini"># 默认标准输出(stdout)、标准错误输出(stderr)都是/dev/null, 不会记录
+# 开启之后, 会通过pipe管道导到master进程, 写到日志里
+catch_workers_output = yes
+# 如果ini里面配置了error_log, fpm配置里面可以不配置
+error_log = path/to/name
+</code></pre></li>
+</ul>
+
+<h3 id="集成到nginx中">集成到Nginx中</h3>
+
+<p>在开启了php的日志之后, 注释掉 <strong>PHP</strong> <code>error_log</code> 配置, 在nginx的配置文件里面设置 <code>error_log</code> 即可把PHP日志导向Nginx.</p>
+
+<p>在PHP出现错误之后会先写入到error_log中, 如果error_log无法写入或者没有设置的话, 就会返回到SAPI层, nginx再接收到这个错误, 输出到nginx的日志</p>
+
+<h3 id="参考文章">参考文章</h3>
+
+<p>[1] <a href="https://www.jianshu.com/p/e567ba80f3b2">PHP FPM源代码反刍品味之四: 事件处理</a></p>
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+                <ul id="post-list" class="archive readmore">
+    <h3>其他文章</h3>
+
+    
+    
+    
+        <li>
+            <a href="/posts/use-hugo-create-blog-sties/">关于hugo的使用<aside class="dates">2020-07-24</aside></a>
+        </li>
+    
+</ul>
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.github.com/stepkim">
+        <i class="fa fa-github"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2020 <i class="fa fa-heart" aria-hidden="true"></i> stepkim
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://stepkim.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://stepkim.github.io/js/main.js"></script>
+<script src="https://stepkim.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+
+
+
+
+    </body>
+</html>
