@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Stepkim</title>
+    <title>StepKim</title>
     <link>https://stepkim.gitee.io/</link>
-    <description>Recent content on Stepkim</description>
+    <description>Recent content on StepKim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 24 Jul 2020 16:47:03 +0800</lastBuildDate>
@@ -37,6 +37,7 @@ go get -v github.com/spf13/hugo  如果需要更新Hugo的所有依赖, 可以�
       <guid>https://stepkim.gitee.io/about/</guid>
       <description>Email: stepkim@163.com
 GitHub: Stepkim
+Gitee: stepkim
 Location: ShenZhen</description>
     </item>
     
