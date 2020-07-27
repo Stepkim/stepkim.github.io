@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>StepKim</title>
-    <link>https://stepkim.github.io/</link>
+    <link>https://stepkim.gitee.io/</link>
     <description>Recent content on StepKim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 27 Jul 2020 19:44:54 +0800</lastBuildDate>
     
-	<atom:link href="https://stepkim.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stepkim.gitee.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>关于PHP的错误日志收集</title>
-      <link>https://stepkim.github.io/posts/php-log-collect/</link>
+      <link>https://stepkim.gitee.io/posts/php-log-collect/</link>
       <pubDate>Mon, 27 Jul 2020 19:44:54 +0800</pubDate>
       
-      <guid>https://stepkim.github.io/posts/php-log-collect/</guid>
+      <guid>https://stepkim.gitee.io/posts/php-log-collect/</guid>
       <description>开启日志 更改 php.ini 或者 php-fpm.conf, 如果更改了 php-fpm.conf 的话, 会覆盖 php.ini 的配置
  php.ini
 # 生产环境关闭页面显示错误 display_errors = Off # 设置报错级别 # E_ALL 报告所有的错误 # E_NOTICE 报告通知类错误, 脚本可能会产生错误 # E_PARSE 报告编译时的语法解析错误 # E_WARNING 报告运行时的警告类错误(脚本不会终止运行) # E_ERROR 报告导致脚本终止运行的致命错误 # 如果需要排除某种错误, 使用 ~ 前缀, 多个用 &amp;amp; 连接 error_reporting = E_ALL # 记录日志的文件路径, 如果文件不可写入, 会把错误抛出, 后面可以使用nginx接收错误输出 error_log = path/to/name # 开启日志记录 log_errors = On  php-fpm.conf
@@ -25,10 +25,10 @@
     
     <item>
       <title>关于hugo的使用</title>
-      <link>https://stepkim.github.io/posts/use-hugo-create-blog-sties/</link>
+      <link>https://stepkim.gitee.io/posts/use-hugo-create-blog-sties/</link>
       <pubDate>Fri, 24 Jul 2020 16:47:03 +0800</pubDate>
       
-      <guid>https://stepkim.github.io/posts/use-hugo-create-blog-sties/</guid>
+      <guid>https://stepkim.gitee.io/posts/use-hugo-create-blog-sties/</guid>
       <description>安装 1. 二进制安装 下载编译好的对应系统的二进制文件进行安装, 下载地址: Hugo Releases
 如果在Mac环境下, 可以使用brew install hugo进行快速安装
 2. 源码安装 2.1 环境依赖:
@@ -43,10 +43,10 @@ go get -v github.com/spf13/hugo  如果需要更新Hugo的所有依赖, 可以�
     
     <item>
       <title>关于</title>
-      <link>https://stepkim.github.io/about/</link>
+      <link>https://stepkim.gitee.io/about/</link>
       <pubDate>Fri, 24 Jul 2020 11:44:34 +0800</pubDate>
       
-      <guid>https://stepkim.github.io/about/</guid>
+      <guid>https://stepkim.gitee.io/about/</guid>
       <description>Email: stepkim@163.com
 GitHub: Stepkim
 Gitee: stepkim
