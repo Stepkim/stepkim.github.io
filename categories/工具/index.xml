@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>工具 on StepKim</title>
-    <link>https://stepkim.gitee.io/categories/%E5%B7%A5%E5%85%B7/</link>
+    <link>https://stepkim.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
     <description>Recent content in 工具 on StepKim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 24 Jul 2020 16:47:03 +0800</lastBuildDate>
     
-	<atom:link href="https://stepkim.gitee.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stepkim.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>关于hugo的使用</title>
-      <link>https://stepkim.gitee.io/posts/use-hugo-create-blog-sties/</link>
+      <link>https://stepkim.github.io/posts/use-hugo-create-blog-sties/</link>
       <pubDate>Fri, 24 Jul 2020 16:47:03 +0800</pubDate>
       
-      <guid>https://stepkim.gitee.io/posts/use-hugo-create-blog-sties/</guid>
+      <guid>https://stepkim.github.io/posts/use-hugo-create-blog-sties/</guid>
       <description>安装 1. 二进制安装 下载编译好的对应系统的二进制文件进行安装, 下载地址: Hugo Releases
 如果在Mac环境下, 可以使用brew install hugo进行快速安装
 2. 源码安装 2.1 环境依赖:
