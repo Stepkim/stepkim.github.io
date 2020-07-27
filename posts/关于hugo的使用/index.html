@@ -80,8 +80,8 @@ go get -v github.com/spf13/hugo  如果需要更新Hugo的所有依赖, 可以�
                     </h1>
                     <h2 class="headline">
                     2020-07-24 16:47
-                    · 182 字数
-                    · 1 分钟前阅读
+                    · 224 字数
+                    · 2 分钟前阅读
                       <span class="tags">
                       
                       
@@ -114,7 +114,7 @@ go get -v github.com/spf13/hugo  如果需要更新Hugo的所有依赖, 可以�
 <li><a href="#安装主题">安装主题</a></li>
 <li><a href="#配置主题">配置主题</a></li>
 <li><a href="#运行">运行</a></li>
-<li><a href="#在-github-pages-上部署">在<code>github pages</code>上部署</a></li>
+<li><a href="#在-github-pages-gitee-pages-上部署">在 <code>github pages</code> / <code>gitee pages</code> 上部署</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -198,9 +198,9 @@ config.toml
 
 <p>然后访问<code>localhost:1313</code></p>
 
-<h3 id="在-github-pages-上部署">在<code>github pages</code>上部署</h3>
+<h3 id="在-github-pages-gitee-pages-上部署">在 <code>github pages</code> / <code>gitee pages</code> 上部署</h3>
 
-<p>创建仓库, 仓库名称为 <code>{username}.github.io</code> , 编译本地的md文件为html文件</p>
+<p>以 <code>github pages</code> 为例, 创建仓库, 仓库名称为 <code>{username}.github.io</code> , 编译本地的md文件为html文件</p>
 
 <pre><code class="language-shell">hugo --theme=hugo-theme-cactus-plus --baseUrl=&quot;https://{username}.github.io/&quot;
 </code></pre>
@@ -217,6 +217,10 @@ git push -u origin master
 
 <p>提交完成之后就可以在浏览器上访问 <code>{username}.github.io</code> 查看效果.</p>
 
+<blockquote>
+<p>注: 如果是提交到gitee, 需要去此仓库-&gt;服务-&gt;Gitee Pages-&gt;更新</p>
+</blockquote>
+
 <p>下面附上本地运行以及编译发布的脚本</p>
 
 <ul>
@@ -231,22 +235,40 @@ hugo server --theme=hugo-theme-cactus-plus --buildDrafts
 
 <pre><code class="language-shell">#!/bin/bash
 
-hugo --theme=hugo-theme-cactus-plus --baseUrl=&quot;https://{username}.github.io/&quot;
+repo=&quot;https://github.com/{username}/{username}.github.io.git&quot;
+baseUrl=&quot;https://{username}.github.io/&quot;
+
+case $1 in
+github)
+repo=&quot;https://github.com/{username}/{username}.github.io.git&quot;
+baseUrl=&quot;https://{username}.github.io/&quot;
+;;
+gitee)
+repo=&quot;https://gitee.com/stepkim/stepkim.git&quot;
+baseUrl=&quot;https://username.gitee.io/&quot;
+;;
+*)
+echo &quot;Usage: $0 [OPTIONS] {github|gitee}&quot;
+exit 0
+;;
+esac
+
+hugo --theme=hugo-theme-cactus-plus --baseUrl=$baseUrl
 cd public
 git init
-git remote add origin https://github.com/{username}/{username}.github.io.git
+git remote add origin $repo
 git add -A
 git commit -m 'deploy'
 git push -u origin master
 cd -
 
 # 如果有把握的话可以使用git push -f进行提交
-hugo --theme=hugo-theme-cactus-plus --baseUrl=&quot;https://{username}.github.io/&quot;
-cd public
-git init
-git add -A
-git commit -m 'deploy'
-git push -f git@github.com:{username}/{username}.github.io.git master
+# hugo --theme=hugo-theme-cactus-plus --baseUrl=$baseUrl
+# cd public
+# git init
+# git add -A
+# git commit -m 'deploy'
+# git push -f $repo master
 </code></pre></li>
 </ul>
 
