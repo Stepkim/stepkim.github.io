@@ -29,5 +29,16 @@ go get -v github.com/spf13/hugo  如果需要更新Hugo的所有依赖, 可以�
 ▸ archetypes/ ▸ content/ ▸ layouts/ ▸ static/ config.toml  创建文章 进到站点目录下执行 hugo new 命令</description>
     </item>
     
+    <item>
+      <title>关于</title>
+      <link>https://stepkim.github.io/about/</link>
+      <pubDate>Fri, 24 Jul 2020 11:44:34 +0800</pubDate>
+      
+      <guid>https://stepkim.github.io/about/</guid>
+      <description>Email: stepkim@163.com
+GitHub: Stepkim
+Location: ShenZhen</description>
+    </item>
+    
   </channel>
 </rss>
