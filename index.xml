@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>StepKim</title>
-    <link>https://stepkim.github.io/</link>
+    <link>https://stepkim.gitee.io/</link>
     <description>Recent content on StepKim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Jul 2020 15:11:49 +0800</lastBuildDate>
     
-	<atom:link href="https://stepkim.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stepkim.gitee.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>在typora中使用公式</title>
-      <link>https://stepkim.github.io/posts/typora-use-formula/</link>
+      <link>https://stepkim.gitee.io/posts/typora-use-formula/</link>
       <pubDate>Tue, 28 Jul 2020 15:11:49 +0800</pubDate>
       
-      <guid>https://stepkim.github.io/posts/typora-use-formula/</guid>
+      <guid>https://stepkim.gitee.io/posts/typora-use-formula/</guid>
       <description>1. 打开公式  段落 -&amp;gt; 公式块 (快捷键Option+Command+B) $$ + Enter $ (行内公式使用单个$, 需要在typora偏好设置-&amp;gt;markdown打开内联公式选项)  2. 公式代码 1. 常用符号    效果 markdown 说明     $\sin{x}$ \sin{x} 正弦函数   $log{x}$ \log{x} 对数函数   $\sum_{i=0}^n$ \sum_{i=0}^n 累加和   $\prod_{i=0}^n$ \prod_{i=0}^n 累积乘   $1\ldots2$ 1\ldots2 底部省略号   $+\cdots+$ +\cdots+ 中部省略号   $\int_a^b$ \int_a^b 积分符号   $\lim$ \lim 极限函数   $\to$ \to 箭头   $\vec{a}$ \vec{a} 矢量a   $90^\circ$ 90^\circ 度数的圆圈   $\uparrow$ \uparrow 上箭头   $\Uparrow$ \Uparrow 双上箭头   $\partial y$ \partial y 导数/偏导   $\infty$ $infty 无穷   $\Pi_{i=0}$ \Pi_{i=0} 累乘   $\sqrt{x}$ \sqrt{x} 求平方根   $\overline{a+b}$ \overline{a+b} 上划线   $\underline{a+b}$ \underline{a+b} 下划线   $\overbrace{a+b}$ \overbrace{a+b} 上括号   $\underbrace{a+b}$ \underbrace{a+b} 下括号   $\pm{a}{b}$ \pm{a}{b} 正负号   $\mp{a}{b}$ \mp{a}{b} 负正号   $\times$ \times 乘号   $\cdot$ \cdot 点乘   $\ast$ \ast 星乘   $\div$ \div 除号   $\frac{1}{2}$ \frac{1}{2} 分数   $\dfrac{1}{2}$ \dfrac{1}{2} 分数, 大字体   $\leq$ \leq 小于等于   $\not$ \not 非   $\geq$ \geq 大于等于   $\neq$ \neq 不等于   $\nleq$ \nleq 不小于等于   $\ngeq$ \ngeq 不大于等于   $\sim$ \sim 相关符号   $\approx$ \approx 约等于   $\equiv$ \equiv 常等于/恒等于   $\bigodot$ \bigodot 加运算符   $\bigotimes$ \bigotimes 乘运算符    2.</description>
     </item>
     
     <item>
       <title>关于hugo的使用</title>
-      <link>https://stepkim.github.io/posts/use-hugo-create-blog-sties/</link>
+      <link>https://stepkim.gitee.io/posts/use-hugo-create-blog-sties/</link>
       <pubDate>Fri, 24 Jul 2020 16:47:03 +0800</pubDate>
       
-      <guid>https://stepkim.github.io/posts/use-hugo-create-blog-sties/</guid>
+      <guid>https://stepkim.gitee.io/posts/use-hugo-create-blog-sties/</guid>
       <description>安装 1. 二进制安装 下载编译好的对应系统的二进制文件进行安装, 下载地址: Hugo Releases
 如果在Mac环境下, 可以使用brew install hugo进行快速安装
 2. 源码安装 2.1 环境依赖:
@@ -40,10 +40,10 @@ go get -v github.com/spf13/hugo  如果需要更新Hugo的所有依赖, 可以�
     
     <item>
       <title>关于</title>
-      <link>https://stepkim.github.io/about/</link>
+      <link>https://stepkim.gitee.io/about/</link>
       <pubDate>Fri, 24 Jul 2020 11:44:34 +0800</pubDate>
       
-      <guid>https://stepkim.github.io/about/</guid>
+      <guid>https://stepkim.gitee.io/about/</guid>
       <description>Email: stepkim@163.com
 GitHub: Stepkim
 Gitee: stepkim
