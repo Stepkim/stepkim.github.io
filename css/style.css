@@ -220,13 +220,13 @@ nav.main-nav a.cta {
 }
 
 #wrapper {
-    max-width: 600px;
+    max-width: 768px;
     margin: 0 auto;
     padding: 60px 20px 100px 20px;
 }
 
 #wrapper.home {
-    max-width: 600px;
+    max-width: 768px;
     margin: 0 auto;
     padding: 0px 40px 20px 40px;
 }
@@ -510,6 +510,10 @@ Post List
     color: #333;
     display: block;
     font: bold 19px/1.7 "Helvetica Neue", helvetica, Arial, sans-serif;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #post-list .dates {
@@ -558,7 +562,7 @@ Post List
 }
 #wrapper.post {
     /* max-width: 670px; */
-    max-width: 756px;
+    max-width: 768px;
 }
 .post {
     margin: auto;
@@ -813,6 +817,10 @@ h2.month {
     padding: 10px 0px;
     overflow-x: hidden;
     white-space:nowrap;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: center;
 }
 
 .archive .post-time {
