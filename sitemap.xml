@@ -3,31 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://stepkim.gitee.io/tags/php/</loc>
-    <lastmod>2020-07-27T19:44:54+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stepkim.gitee.io/posts/</loc>
-    <lastmod>2020-07-27T19:44:54+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stepkim.gitee.io/</loc>
-    <lastmod>2020-07-27T19:44:54+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stepkim.gitee.io/tags/</loc>
-    <lastmod>2020-07-27T19:44:54+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stepkim.gitee.io/posts/php-log-collect/</loc>
-    <lastmod>2020-07-27T19:44:54+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://stepkim.gitee.io/categories/</loc>
     <lastmod>2020-07-24T16:47:03+08:00</lastmod>
   </url>
@@ -48,17 +23,32 @@
   </url>
   
   <url>
+    <loc>https://stepkim.gitee.io/posts/</loc>
+    <lastmod>2020-07-24T16:47:03+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stepkim.gitee.io/</loc>
+    <lastmod>2020-07-24T16:47:03+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stepkim.gitee.io/tags/</loc>
+    <lastmod>2020-07-24T16:47:03+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://stepkim.gitee.io/posts/use-hugo-create-blog-sties/</loc>
     <lastmod>2020-07-24T16:47:03+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stepkim.gitee.io/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://stepkim.gitee.io/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2020-07-24T16:47:03+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stepkim.gitee.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://stepkim.gitee.io/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2020-07-24T16:47:03+08:00</lastmod>
   </url>
   

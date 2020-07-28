@@ -6,22 +6,10 @@
     <description>Recent content on StepKim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jul 2020 19:44:54 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2020 16:47:03 +0800</lastBuildDate>
     
 	<atom:link href="https://stepkim.gitee.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>关于PHP的错误日志收集</title>
-      <link>https://stepkim.gitee.io/posts/php-log-collect/</link>
-      <pubDate>Mon, 27 Jul 2020 19:44:54 +0800</pubDate>
-      
-      <guid>https://stepkim.gitee.io/posts/php-log-collect/</guid>
-      <description>开启日志 更改 php.ini 或者 php-fpm.conf, 如果更改了 php-fpm.conf 的话, 会覆盖 php.ini 的配置
- php.ini
-# 生产环境关闭页面显示错误 display_errors = Off # 设置报错级别 # E_ALL 报告所有的错误 # E_NOTICE 报告通知类错误, 脚本可能会产生错误 # E_PARSE 报告编译时的语法解析错误 # E_WARNING 报告运行时的警告类错误(脚本不会终止运行) # E_ERROR 报告导致脚本终止运行的致命错误 # 如果需要排除某种错误, 使用 ~ 前缀, 多个用 &amp;amp; 连接 error_reporting = E_ALL # 记录日志的文件路径, 如果文件不可写入, 会把错误抛出, 后面可以使用nginx接收错误输出 error_log = path/to/name # 开启日志记录 log_errors = On  php-fpm.conf
-# 默认标准输出(stdout)、标准错误输出(stderr)都是/dev/null, 不会记录 # 开启之后, 会通过pipe管道导到master进程, 写到日志里 catch_workers_output = yes # 如果ini里面配置了error_log, fpm配置里面可以不配置 error_log = path/to/name   集成到Nginx中 在开启了php的日志之后, 注释掉 PHP error_log 配置, 在nginx的配置文件里面设置 error_log 即可把PHP日志导向Nginx.</description>
-    </item>
     
     <item>
       <title>关于hugo的使用</title>
