@@ -42,6 +42,7 @@
 		
 
 		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"/>
 	</head>
 
     <body>
@@ -71,7 +72,7 @@
                     </h1>
                     <h2 class="headline">
                     2020-07-24 16:47
-                    · 222 字数
+                    · 257 字数
                     · 阅读需要约 2 分钟
                       <span class="tags">
                       
@@ -106,8 +107,10 @@
 <li><a href="#创建文章">创建文章</a></li>
 <li><a href="#安装主题">安装主题</a></li>
 <li><a href="#配置主题">配置主题</a></li>
+<li><a href="#让hugo支持公式渲染">让hugo支持公式渲染</a></li>
 <li><a href="#运行">运行</a></li>
 <li><a href="#在-github-pages-gitee-pages-上部署">在 <code>github pages/gitee pages</code> 上部署</a></li>
+<li><a href="#参考">参考</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -181,6 +184,30 @@ config.toml
 <h3 id="配置主题">配置主题</h3>
 
 <p>编辑站点根目录下的<code>config.yaml</code>或者<code>config.toml</code>, 根据主题所需要的参数进行自定义编辑</p>
+
+<blockquote>
+<p>如果不喜欢主题的代码高亮, 可以到<a href="https://highlightjs.org/">highlightjs</a>下载自己喜欢的风格进行替换</p>
+</blockquote>
+
+<h3 id="让hugo支持公式渲染">让hugo支持公式渲染</h3>
+
+<ol>
+<li><p>在引入css的位置加上下面的代码</p>
+
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css&quot;/&gt;
+</code></pre></li>
+
+<li><p>在引入js的位置加上下面的代码</p>
+
+<pre><code class="language-html">&lt;script defer src=&quot;https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js&quot;
+integrity=&quot;sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx&quot; 
+crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script defer src=&quot;https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js&quot;
+integrity=&quot;sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe&quot;
+crossorigin=&quot;anonymous&quot;
+onload=&quot;renderMathInElement(document.body,{delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+</ol>
 
 <h3 id="运行">运行</h3>
 
@@ -265,6 +292,11 @@ cd -
 </code></pre></li>
 </ul>
 
+<h3 id="参考">参考</h3>
+
+<p>[+] <a href="https://www.gohugo.org/">Hugo官网</a><br />
+[+] <a href="https://www.jianshu.com/p/5fd2c9b3b638">使用Hugo生成支持数学公式渲染的静态站</a></p>
+
                 </section>
             </article>
 
@@ -278,6 +310,10 @@ cd -
 
     
     
+    
+        <li>
+            <a href="/posts/typora-use-formula/">在typora中使用公式<aside class="dates">2020-07-28</aside></a>
+        </li>
     
 </ul>
 
@@ -322,6 +358,14 @@ cd -
 
 
 
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"
+integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" 
+crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"
+integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe"
+crossorigin="anonymous"
+onload="renderMathInElement(document.body,{delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
 
     </body>
 </html>

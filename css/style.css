@@ -510,10 +510,6 @@ Post List
     color: #333;
     display: block;
     font: bold 19px/1.7 "Helvetica Neue", helvetica, Arial, sans-serif;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
 }
 
 #post-list .dates {
@@ -714,10 +710,10 @@ h2.month {
 }
 
 #post-list.archive.readmore {
-    /* margin-top: 70px; */
-    position: absolute;
-    top: 270px;
-    right: 7%;
+    margin-top: 70px;
+    /* position: absolute; */
+    /* top: 270px; */
+    /* right: 7%; */
 }
 #post-list.archive.readmore li {
     margin-bottom: 0px;
