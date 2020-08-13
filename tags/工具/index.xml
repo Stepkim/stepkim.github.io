@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>工具 on StepKim</title>
-    <link>https://stepkim.gitee.io/tags/%E5%B7%A5%E5%85%B7/</link>
+    <link>https://stepkim.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
     <description>Recent content in 工具 on StepKim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Aug 2020 11:48:24 +0800</lastBuildDate>
     
-	<atom:link href="https://stepkim.gitee.io/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stepkim.github.io/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>iterm2配置sz和rz下载和上传服务器文件</title>
-      <link>https://stepkim.gitee.io/posts/iterm2-sz-and-rz/</link>
+      <link>https://stepkim.github.io/posts/iterm2-sz-and-rz/</link>
       <pubDate>Thu, 13 Aug 2020 11:48:24 +0800</pubDate>
       
-      <guid>https://stepkim.gitee.io/posts/iterm2-sz-and-rz/</guid>
+      <guid>https://stepkim.github.io/posts/iterm2-sz-and-rz/</guid>
       <description>虽然已经有ftp、scp等协议去上传或者下载服务器文件了，但是有些时候这些命令并不是很方便, 所以有的时候还是使用了sz和rz去上传下载服务器文件
 1. 安装lrzsz 如果你安装了homebrew的话, 可以直接运行命令安装, 什么? 你没有安装homebrew? 那还不赶快去安装
 brew install lrzsz  2. 创建shell脚本 在 /usr/local/bin 目录下, 创建 iterm2-send-zmodem.sh 和 iterm2-recv-zmodem.sh , 当然, 文件名字不做强制要求, 只要你后面配置的时候填你相应的文件名即可
@@ -25,10 +25,10 @@ iterm2-send-zmodem.sh #!/bin/bash osascript -e &#39;tell application &amp;quot;i
     
     <item>
       <title>iterm2配置一键ssh</title>
-      <link>https://stepkim.gitee.io/posts/iterm-use-profile-ssh/</link>
+      <link>https://stepkim.github.io/posts/iterm-use-profile-ssh/</link>
       <pubDate>Thu, 13 Aug 2020 11:37:34 +0800</pubDate>
       
-      <guid>https://stepkim.gitee.io/posts/iterm-use-profile-ssh/</guid>
+      <guid>https://stepkim.github.io/posts/iterm-use-profile-ssh/</guid>
       <description>单纯使用ssh命令连接的话, 每次都需要输入一堆信息, 使用配置文件进行连接就方便多了
 1. 编辑连接配置 #!/usr/bin/expect set PORT remote_port set HOST remote_host set USER remote_user_name set PASSWORD remote_user_password spawn ssh -p $PORT $USER@$HOST expect { &amp;quot;yes/no&amp;quot; {send &amp;quot;yes\r&amp;quot;;exp_continue;} &amp;quot;*password:*&amp;quot; { send &amp;quot;$PASSWORD\r&amp;quot; } } interact  这里主要是使用了expect去实现的, 有兴趣的可以了解一下
 2. 在iterm2中加入配置 设置的路径为 Preferences-&amp;gt;Profiles , 在这里点击 + 新增配置, 然后在右边的 General 栏里面设置 Command , 选中 Command , 在输入框中填写 expect you_profile_path , 至此, 就已经配置完成了
@@ -37,10 +37,10 @@ iterm2-send-zmodem.sh #!/bin/bash osascript -e &#39;tell application &amp;quot;i
     
     <item>
       <title>关于hugo的使用</title>
-      <link>https://stepkim.gitee.io/posts/use-hugo-create-blog-sties/</link>
+      <link>https://stepkim.github.io/posts/use-hugo-create-blog-sties/</link>
       <pubDate>Fri, 24 Jul 2020 16:47:03 +0800</pubDate>
       
-      <guid>https://stepkim.gitee.io/posts/use-hugo-create-blog-sties/</guid>
+      <guid>https://stepkim.github.io/posts/use-hugo-create-blog-sties/</guid>
       <description>安装 1. 二进制安装 下载编译好的对应系统的二进制文件进行安装, 下载地址: Hugo Releases
 如果在Mac环境下, 可以使用brew install hugo进行快速安装
 2. 源码安装 2.1 环境依赖:
