@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>StepKim</title>
-    <link>https://stepkim.gitee.io/</link>
-    <description>Recent content on StepKim</description>
+    <title>iterm2 on StepKim</title>
+    <link>https://stepkim.gitee.io/tags/iterm2/</link>
+    <description>Recent content in iterm2 on StepKim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Aug 2020 11:48:24 +0800</lastBuildDate>
     
-	<atom:link href="https://stepkim.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stepkim.gitee.io/tags/iterm2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -33,48 +33,6 @@ iterm2-send-zmodem.sh #!/bin/bash osascript -e &#39;tell application &amp;quot;i
 1. 编辑连接配置 #!/usr/bin/expect set PORT remote_port set HOST remote_host set USER remote_user_name set PASSWORD remote_user_password spawn ssh -p $PORT $USER@$HOST expect { &amp;quot;yes/no&amp;quot; {send &amp;quot;yes\r&amp;quot;;exp_continue;} &amp;quot;*password:*&amp;quot; { send &amp;quot;$PASSWORD\r&amp;quot; } } interact  这里主要是使用了expect去实现的, 有兴趣的可以了解一下
 2. 在iterm2中加入配置 设置的路径为 Preferences-&amp;gt;Profiles , 在这里点击 + 新增配置, 然后在右边的 General 栏里面设置 Command , 选中 Command , 在输入框中填写 expect you_profile_path , 至此, 就已经配置完成了
 3. 使用 需要进行ssh连接的时候, 可以 command + o, 然后选择需要连接的配置, 就ok了</description>
-    </item>
-    
-    <item>
-      <title>关于PHP的错误日志收集</title>
-      <link>https://stepkim.gitee.io/posts/php-log-collect/</link>
-      <pubDate>Mon, 27 Jul 2020 19:44:54 +0800</pubDate>
-      
-      <guid>https://stepkim.gitee.io/posts/php-log-collect/</guid>
-      <description>开启日志 更改 php.ini 或者 php-fpm.conf, 如果更改了 php-fpm.conf 的话, 会覆盖 php.ini 的配置
- php.ini
-# 生产环境关闭页面显示错误 display_errors = Off # 设置报错级别 # E_ALL 报告所有的错误 # E_NOTICE 报告通知类错误, 脚本可能会产生错误 # E_PARSE 报告编译时的语法解析错误 # E_WARNING 报告运行时的警告类错误(脚本不会终止运行) # E_ERROR 报告导致脚本终止运行的致命错误 # 如果需要排除某种错误, 使用 ~ 前缀, 多个用 &amp;amp; 连接 error_reporting = E_ALL # 记录日志的文件路径, 如果文件不可写入, 会把错误抛出, 后面可以使用nginx接收错误输出 error_log = path/to/name # 开启日志记录 log_errors = On  php-fpm.conf
-# 默认标准输出(stdout)、标准错误输出(stderr)都是/dev/null, 不会记录 # 开启之后, 会通过pipe管道导到master进程, 写到日志里 catch_workers_output = yes # 记录的是php-fpm的错误, 与ini里面配置的有所区别 error_log = path/to/name   集成到Nginx中 在开启了php的日志之后, 注释掉 PHP error_log 配置, 在nginx的配置文件里面设置 error_log 即可把PHP日志导向Nginx.</description>
-    </item>
-    
-    <item>
-      <title>关于hugo的使用</title>
-      <link>https://stepkim.gitee.io/posts/use-hugo-create-blog-sties/</link>
-      <pubDate>Fri, 24 Jul 2020 16:47:03 +0800</pubDate>
-      
-      <guid>https://stepkim.gitee.io/posts/use-hugo-create-blog-sties/</guid>
-      <description>安装 1. 二进制安装 下载编译好的对应系统的二进制文件进行安装, 下载地址: Hugo Releases
-如果在Mac环境下, 可以使用brew install hugo进行快速安装
-2. 源码安装 2.1 环境依赖:
- Git Mercurial Go 1.3+ (Go 1.4+ on windows)
-  2.2 安装
-安装好Go环境之后设置环境变量
-export GOPATH=$HOME/go  获取源码并编译
-go get -v github.com/spf13/hugo  如果需要更新Hugo的所有依赖, 可以加上 -u 参数, 执行命令之后, 源码会下载到 $GOPATH/src/ 目录下, 二进制文件会在 $GOPATH/bin/ 目录下
-生成站点 hugo new site /path/to/site  生成的站点目录结构如下:
-▸ archetypes/ ▸ content/ ▸ layouts/ ▸ static/ config.toml  创建文章 进到站点目录下执行 hugo new 命令</description>
-    </item>
-    
-    <item>
-      <title>关于</title>
-      <link>https://stepkim.gitee.io/about/</link>
-      <pubDate>Fri, 24 Jul 2020 11:44:34 +0800</pubDate>
-      
-      <guid>https://stepkim.gitee.io/about/</guid>
-      <description>Email: stepkim@163.com
-GitHub: Stepkim
-Gitee: stepkim
-Location: ShenZhen</description>
     </item>
     
   </channel>
