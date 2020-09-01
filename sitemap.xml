@@ -3,27 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://stepkim.github.io/tags/php/</loc>
+    <lastmod>2020-09-01T10:16:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stepkim.github.io/posts/</loc>
+    <lastmod>2020-09-01T10:16:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stepkim.github.io/</loc>
+    <lastmod>2020-09-01T10:16:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stepkim.github.io/tags/</loc>
+    <lastmod>2020-09-01T10:16:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stepkim.github.io/tags/%E7%BA%BF%E4%B8%8A%E6%95%85%E9%9A%9C/</loc>
+    <lastmod>2020-09-01T10:16:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stepkim.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%BC%8F%E7%8E%AF%E5%A2%83%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6/</loc>
+    <lastmod>2020-09-01T10:16:02+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://stepkim.github.io/tags/iterm2/</loc>
     <lastmod>2020-08-13T11:48:24+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://stepkim.github.io/posts/iterm2-sz-and-rz/</loc>
-    <lastmod>2020-08-13T11:48:24+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stepkim.github.io/posts/</loc>
-    <lastmod>2020-08-13T11:48:24+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stepkim.github.io/</loc>
-    <lastmod>2020-08-13T11:48:24+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stepkim.github.io/tags/</loc>
     <lastmod>2020-08-13T11:48:24+08:00</lastmod>
   </url>
   
@@ -38,11 +53,6 @@
   </url>
   
   <url>
-    <loc>https://stepkim.github.io/tags/php/</loc>
-    <lastmod>2020-07-27T19:44:54+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://stepkim.github.io/posts/php-log-collect/</loc>
     <lastmod>2020-07-27T19:44:54+08:00</lastmod>
   </url>
@@ -53,12 +63,12 @@
   </url>
   
   <url>
-    <loc>https://stepkim.github.io/categories/go/</loc>
+    <loc>https://stepkim.github.io/tags/go/</loc>
     <lastmod>2020-07-24T16:47:03+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stepkim.github.io/tags/go/</loc>
+    <loc>https://stepkim.github.io/categories/go/</loc>
     <lastmod>2020-07-24T16:47:03+08:00</lastmod>
   </url>
   

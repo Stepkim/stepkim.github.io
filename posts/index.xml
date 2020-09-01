@@ -6,10 +6,22 @@
     <description>Recent content in Posts on StepKim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Aug 2020 11:48:24 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2020 10:16:02 +0800</lastBuildDate>
     
 	<atom:link href="https://stepkim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>记一次正式环境客户端请求超时</title>
+      <link>https://stepkim.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%BC%8F%E7%8E%AF%E5%A2%83%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6/</link>
+      <pubDate>Tue, 01 Sep 2020 10:16:02 +0800</pubDate>
+      
+      <guid>https://stepkim.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%BC%8F%E7%8E%AF%E5%A2%83%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6/</guid>
+      <description>问题 早上运营提出问题说社区页面空白, 客户端那边说是接口超时了, 把抓到的接口用chrome打开发现, 是接口响应时间过久, 客户端的请求设置了超时响应时间为8s, 而接口响应时间超过了20s, 所以触发了客户端的超时机制
+问题排查 既然知道了是接口响应时间过长, 就先看看 Network 里面的 Timing, 发现主要是 Initial connection 耗时占用, 即初始化连接的时候有问题
+查看Nginx日志, 发现Nginx一切正常, 用 SwitchHosts 切换环境host, 开发/测试/预发环境都正常, 线上环境host指向web服务器的话响应时间也是在正常范围内, 而指向负载均衡host的时候, 响应时间就长了
+问题解决 因为公司用的是阿里云的负载均衡服务, 查看阿里云控制台, 发现在凌晨00:25开始, 流量就骤减, 说明负载均衡确实有问题, 联系运维, 问题找到了: 运维更改了负载均衡的连接限制, 后找运维恢复配置之后问题解决</description>
+    </item>
     
     <item>
       <title>iterm2配置sz和rz下载和上传服务器文件</title>

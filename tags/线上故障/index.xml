@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>PHP on StepKim</title>
-    <link>https://stepkim.github.io/tags/php/</link>
-    <description>Recent content in PHP on StepKim</description>
+    <title>线上故障 on StepKim</title>
+    <link>https://stepkim.github.io/tags/%E7%BA%BF%E4%B8%8A%E6%95%85%E9%9A%9C/</link>
+    <description>Recent content in 线上故障 on StepKim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Sep 2020 10:16:02 +0800</lastBuildDate>
     
-	<atom:link href="https://stepkim.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stepkim.github.io/tags/%E7%BA%BF%E4%B8%8A%E6%95%85%E9%9A%9C/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,18 +21,6 @@
 问题排查 既然知道了是接口响应时间过长, 就先看看 Network 里面的 Timing, 发现主要是 Initial connection 耗时占用, 即初始化连接的时候有问题
 查看Nginx日志, 发现Nginx一切正常, 用 SwitchHosts 切换环境host, 开发/测试/预发环境都正常, 线上环境host指向web服务器的话响应时间也是在正常范围内, 而指向负载均衡host的时候, 响应时间就长了
 问题解决 因为公司用的是阿里云的负载均衡服务, 查看阿里云控制台, 发现在凌晨00:25开始, 流量就骤减, 说明负载均衡确实有问题, 联系运维, 问题找到了: 运维更改了负载均衡的连接限制, 后找运维恢复配置之后问题解决</description>
-    </item>
-    
-    <item>
-      <title>关于PHP的错误日志收集</title>
-      <link>https://stepkim.github.io/posts/php-log-collect/</link>
-      <pubDate>Mon, 27 Jul 2020 19:44:54 +0800</pubDate>
-      
-      <guid>https://stepkim.github.io/posts/php-log-collect/</guid>
-      <description>开启日志 更改 php.ini 或者 php-fpm.conf, 如果更改了 php-fpm.conf 的话, 会覆盖 php.ini 的配置
- php.ini
-# 生产环境关闭页面显示错误 display_errors = Off # 设置报错级别 # E_ALL 报告所有的错误 # E_NOTICE 报告通知类错误, 脚本可能会产生错误 # E_PARSE 报告编译时的语法解析错误 # E_WARNING 报告运行时的警告类错误(脚本不会终止运行) # E_ERROR 报告导致脚本终止运行的致命错误 # 如果需要排除某种错误, 使用 ~ 前缀, 多个用 &amp;amp; 连接 error_reporting = E_ALL # 记录日志的文件路径, 如果文件不可写入, 会把错误抛出, 后面可以使用nginx接收错误输出 error_log = path/to/name # 开启日志记录 log_errors = On  php-fpm.conf
-# 默认标准输出(stdout)、标准错误输出(stderr)都是/dev/null, 不会记录 # 开启之后, 会通过pipe管道导到master进程, 写到日志里 catch_workers_output = yes # 记录的是php-fpm的错误, 与ini里面配置的有所区别 error_log = path/to/name   集成到Nginx中 在开启了php的日志之后, 注释掉 PHP error_log 配置, 在nginx的配置文件里面设置 error_log 即可把PHP日志导向Nginx.</description>
     </item>
     
   </channel>

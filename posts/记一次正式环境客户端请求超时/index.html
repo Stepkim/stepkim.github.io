@@ -13,11 +13,11 @@
     
   
   
-  <meta name="twitter:title" content="关于PHP的错误日志收集"/>
-  <meta name="twitter:description" content="开启日志 更改 php.ini 或者 php-fpm.conf, 如果更改了 php-fpm.conf 的话, 会覆盖 php.ini 的配置
- php.ini
-# 生产环境关闭页面显示错误 display_errors = Off # 设置报错级别 # E_ALL 报告所有的错误 # E_NOTICE 报告通知类错误, 脚本可能会产生错误 # E_PARSE 报告编译时的语法解析错误 # E_WARNING 报告运行时的警告类错误(脚本不会终止运行) # E_ERROR 报告导致脚本终止运行的致命错误 # 如果需要排除某种错误, 使用 ~ 前缀, 多个用 &amp; 连接 error_reporting = E_ALL # 记录日志的文件路径, 如果文件不可写入, 会把错误抛出, 后面可以使用nginx接收错误输出 error_log = path/to/name # 开启日志记录 log_errors = On  php-fpm.conf
-# 默认标准输出(stdout)、标准错误输出(stderr)都是/dev/null, 不会记录 # 开启之后, 会通过pipe管道导到master进程, 写到日志里 catch_workers_output = yes # 记录的是php-fpm的错误, 与ini里面配置的有所区别 error_log = path/to/name   集成到Nginx中 在开启了php的日志之后, 注释掉 PHP error_log 配置, 在nginx的配置文件里面设置 error_log 即可把PHP日志导向Nginx."/>
+  <meta name="twitter:title" content="记一次正式环境客户端请求超时"/>
+  <meta name="twitter:description" content="问题 早上运营提出问题说社区页面空白, 客户端那边说是接口超时了, 把抓到的接口用chrome打开发现, 是接口响应时间过久, 客户端的请求设置了超时响应时间为8s, 而接口响应时间超过了20s, 所以触发了客户端的超时机制
+问题排查 既然知道了是接口响应时间过长, 就先看看 Network 里面的 Timing, 发现主要是 Initial connection 耗时占用, 即初始化连接的时候有问题
+查看Nginx日志, 发现Nginx一切正常, 用 SwitchHosts 切换环境host, 开发/测试/预发环境都正常, 线上环境host指向web服务器的话响应时间也是在正常范围内, 而指向负载均衡host的时候, 响应时间就长了
+问题解决 因为公司用的是阿里云的负载均衡服务, 查看阿里云控制台, 发现在凌晨00:25开始, 流量就骤减, 说明负载均衡确实有问题, 联系运维, 问题找到了: 运维更改了负载均衡的连接限制, 后找运维恢复配置之后问题解决"/>
   
   
   
@@ -31,7 +31,7 @@
 		<meta name="author" content="stepkim">
 		
 		<meta name="generator" content="Hugo 0.59.0" />
-		<title>关于PHP的错误日志收集 &middot; StepKim</title>
+		<title>记一次正式环境客户端请求超时 &middot; StepKim</title>
 		<link rel="shortcut icon" href="https://stepkim.github.io/images/favicon.ico">
 		<link rel="stylesheet" href="https://stepkim.github.io/css/style.css">
 		<link rel="stylesheet" href="https://stepkim.github.io/css/highlight.css">
@@ -71,17 +71,19 @@
             <article>
                 <header>
                     <h1>
-                        关于PHP的错误日志收集
+                        记一次正式环境客户端请求超时
                     </h1>
                     <h2 class="headline">
-                    2020-07-27 19:44
-                    · 95 字数
+                    2020-09-01 10:16
+                    · 38 字数
                     · 阅读需要约 1 分钟
                       <span class="tags">
                       
                       
                           
                               <a href="https://stepkim.github.io/tags/php">PHP</a>
+                          
+                              <a href="https://stepkim.github.io/tags/%E7%BA%BF%E4%B8%8A%E6%95%85%E9%9A%9C">线上故障</a>
                           
                       
                       
@@ -97,9 +99,9 @@
 <ul>
 <li>
 <ul>
-<li><a href="#开启日志">开启日志</a></li>
-<li><a href="#集成到nginx中">集成到Nginx中</a></li>
-<li><a href="#参考文章">参考文章</a></li>
+<li><a href="#问题">问题</a></li>
+<li><a href="#问题排查">问题排查</a></li>
+<li><a href="#问题解决">问题解决</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -110,48 +112,19 @@
                 <section id="post-body">
                     
 
-<h3 id="开启日志">开启日志</h3>
+<h3 id="问题">问题</h3>
 
-<p>更改 <code>php.ini</code> 或者 <code>php-fpm.conf</code>, 如果更改了 <code>php-fpm.conf</code> 的话, 会覆盖 <code>php.ini</code> 的配置</p>
+<p>早上运营提出问题说社区页面空白, 客户端那边说是接口超时了, 把抓到的接口用chrome打开发现, 是接口响应时间过久, 客户端的请求设置了超时响应时间为8s, 而接口响应时间超过了20s, 所以触发了客户端的超时机制</p>
 
-<ul>
-<li><p>php.ini</p>
+<h3 id="问题排查">问题排查</h3>
 
-<pre><code class="language-ini"># 生产环境关闭页面显示错误
-display_errors = Off
-# 设置报错级别
-# E_ALL 报告所有的错误
-# E_NOTICE 报告通知类错误, 脚本可能会产生错误
-# E_PARSE 报告编译时的语法解析错误
-# E_WARNING 报告运行时的警告类错误(脚本不会终止运行)
-# E_ERROR 报告导致脚本终止运行的致命错误
-# 如果需要排除某种错误, 使用 ~ 前缀, 多个用 &amp; 连接
-error_reporting = E_ALL
-# 记录日志的文件路径, 如果文件不可写入, 会把错误抛出, 后面可以使用nginx接收错误输出
-error_log = path/to/name
-# 开启日志记录
-log_errors = On
-</code></pre></li>
+<p>既然知道了是接口响应时间过长, 就先看看 <code>Network</code> 里面的 <code>Timing</code>, 发现主要是 <code>Initial connection</code> 耗时占用, 即初始化连接的时候有问题</p>
 
-<li><p>php-fpm.conf</p>
+<p>查看Nginx日志, 发现Nginx一切正常, 用 <code>SwitchHosts</code> 切换环境host, 开发/测试/预发环境都正常, 线上环境host指向web服务器的话响应时间也是在正常范围内, 而指向负载均衡host的时候, 响应时间就长了</p>
 
-<pre><code class="language-ini"># 默认标准输出(stdout)、标准错误输出(stderr)都是/dev/null, 不会记录
-# 开启之后, 会通过pipe管道导到master进程, 写到日志里
-catch_workers_output = yes
-# 记录的是php-fpm的错误, 与ini里面配置的有所区别
-error_log = path/to/name
-</code></pre></li>
-</ul>
+<h3 id="问题解决">问题解决</h3>
 
-<h3 id="集成到nginx中">集成到Nginx中</h3>
-
-<p>在开启了php的日志之后, 注释掉 <strong>PHP</strong> <code>error_log</code> 配置, 在nginx的配置文件里面设置 <code>error_log</code> 即可把PHP日志导向Nginx.</p>
-
-<p>在PHP出现错误之后会先写入到error_log中, 如果error_log无法写入或者没有设置的话, 就会返回到SAPI层, nginx再接收到这个错误, 输出到nginx的日志</p>
-
-<h3 id="参考文章">参考文章</h3>
-
-<p>[1] <a href="https://www.jianshu.com/p/e567ba80f3b2">PHP FPM源代码反刍品味之四: 事件处理</a></p>
+<p>因为公司用的是阿里云的负载均衡服务, 查看阿里云控制台, 发现在凌晨00:25开始, 流量就骤减, 说明负载均衡确实有问题, 联系运维, 问题找到了: 运维更改了负载均衡的连接限制, 后找运维恢复配置之后问题解决</p>
 
                 </section>
             </article>
@@ -168,15 +141,15 @@ error_log = path/to/name
     
     
         <li>
-            <a href="/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%BC%8F%E7%8E%AF%E5%A2%83%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6/">记一次正式环境客户端请求超时<aside class="dates">2020-09-01</aside></a>
-        </li>
-    
-        <li>
             <a href="/posts/iterm2-sz-and-rz/">iterm2配置sz和rz下载和上传服务器文件<aside class="dates">2020-08-13</aside></a>
         </li>
     
         <li>
             <a href="/posts/iterm-use-profile-ssh/">iterm2配置一键ssh<aside class="dates">2020-08-13</aside></a>
+        </li>
+    
+        <li>
+            <a href="/posts/php-log-collect/">关于PHP的错误日志收集<aside class="dates">2020-07-27</aside></a>
         </li>
     
         <li>
